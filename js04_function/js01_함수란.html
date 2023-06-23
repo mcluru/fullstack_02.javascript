@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      /*
+      함수(function)란?
+      1. 호출된 곳으로 처리결과를 전달하는 기능
+      2. 호출방법 : 함수명()
+      3. 호출 소괄호 안에 함수로 임의의 값 전달하는 매개변수(매개값, 인자, 파라미터 ...)가 있을수도, 없을수도 있다.
+      4. 사용자함수의 정의방법
+        1) 익명함수 : 이름이 없는 함수 : function() { ... }
+        2) 선언함수 : 이름이 있는 함수 : function 함수명(매개변수) { ... }
+
+      내장함수와 사용자(정의)함수
+      1. 내장함수 : JavaScript 에서 기본적으로 제공해 주는 함수
+        ex) alter, prompt, confirm ...
+      2. 사용자(정의)함수
+        1) 익명함수
+        2) 선언함수
+      */
+
+      // 1) 익명함수
+      let fn01 = function () {
+        // 실행할 문장...
+        return '반환된 값';
+      };
+      let result = fn01();
+      console.log(typeof fn01, ', ', result);
+      console.log(`${fn01()}`);
+
+      // 2) 재사용하기 위한 함수
+      let fn02 = function (a, b) {
+        return a + b;
+      };
+      result = fn02(10, 20);
+      console.log(`10 + 20 = ${result}`);
+      console.log(`100 + 300 = ${fn02(100, 300)}`);
+
+      // 2. 선언함수
+      function fn03(a, b) {
+        return a * b;
+      }
+      result = fn03(10, 20);
+      console.log(`10 * 20 = ${result}`);
+      console.log(`100 * 300 = ${fn03(100, 300)}`);
+
+      /*
+        실습1. 계산기 함수를 작성하기(선언함수, 익명함수)
+        매개변수가 3개인 calculator(연산자, 값1, 값2)
+        연산자 : + - * / %
+        각 연산자에 따라 값1과 값 2의 연산결과를 출력
+        document.write(`값1 + 값2 = 결과값`)
+        document.write(`값1 + 값2 = 결과값`)
+        document.write(`값1 + 값2 = 결과값`)
+        document.write(`값1 + 값2 = 결과값`)
+        document.write(`값1 + 값2 = 결과값`)
+      */
+
+      let num1 = parseInt(prompt('값1을 입력하세요', 0));
+      let ch1 = prompt('연산자를 입력하세요', '+');
+      let num2 = parseInt(prompt('값2을 입력하세요', 0));
+
+      calculator(num1, ch1, num2);
+
+      function calculator(num1, ch1, num2) {
+        switch (ch1) {
+          case '+':
+            document.write(`${num1} + ${num2} = ${num1 + num2}`);
+            break;
+          case '-':
+            document.write(`${num1} - ${num2} = ${num1 - num2}`);
+            break;
+          case '*':
+            document.write(`${num1} * ${num2} = ${num1 * num2}`);
+            break;
+          case '/':
+            document.write(`${num1} / ${num2} = ${num1 / num2}`);
+            break;
+          case '%':
+            document.write(`${num1} % ${num2} = ${num1 % num2}`);
+            break;
+        }
+      }
+    </script>
+  </head>
+  <body></body>
+</html>
